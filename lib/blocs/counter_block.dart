@@ -11,7 +11,7 @@ class CounterBloc extends ChangeNotifier {
 
   increment() {
     _counter++;
-    // notifyListeners();
+    notifyListeners();
   }
 
   decrement() {
