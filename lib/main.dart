@@ -1,5 +1,5 @@
-import 'package:change_notifier/blocs/counter.dart';
-import 'package:change_notifier/blocs/counter_block.dart';
+import 'package:change_notifier/widgets/counter.dart';
+import 'package:change_notifier/blocs/counter_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<CounterBloc>.value(
-          value: CounterBloc(),
+        ChangeNotifierProvider<CounterViewModel>.value(
+          value: CounterViewModel(),
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: CounterPage(),
       ),
     );
