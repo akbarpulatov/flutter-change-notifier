@@ -8,9 +8,15 @@ class DecrementButton extends StatelessWidget {
     final CounterViewModel counterBloc = Provider.of<CounterViewModel>(context);
 
     return FlatButton.icon(
-      icon: Icon(Icons.remove),
+      icon: Consumer<CounterViewModel>(
+        builder: (BuildContext context, value, Widget child) {
+          return Icon(Icons.remove, color: value.color);
+        },
+      ),
       label: Text('Remove'),
-      onPressed: () => counterBloc.decrement(),
+      onPressed: () {
+        counterBloc.decrement();
+      },
     );
   }
 }

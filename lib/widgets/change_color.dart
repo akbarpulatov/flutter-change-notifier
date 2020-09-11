@@ -12,8 +12,8 @@ class ChangeColorButton extends StatelessWidget {
 
     return FlatButton.icon(
       icon: Icon(Icons.color_lens),
-      onPressed: () => {
-        counterViewModel.changeColor(Colors.black),
+      onPressed: () {
+        counterViewModel.changeColor(Colors.black);
       },
       label: Text('change color'),
     );
