@@ -5,12 +5,13 @@ import 'package:provider/provider.dart';
 class DecrementButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final CounterViewModel counterBloc = Provider.of<CounterViewModel>(context);
+    final CounterViewModel counterBloc =
+        Provider.of<CounterViewModel>(context, listen: false);
 
     return FlatButton.icon(
       icon: Consumer<CounterViewModel>(
-        builder: (BuildContext context, value, Widget child) {
-          return Icon(Icons.remove, color: value.color);
+        builder: (BuildContext context, viewModel, Widget child) {
+          return Icon(Icons.remove, color: viewModel.color);
         },
       ),
       label: Text('Remove'),

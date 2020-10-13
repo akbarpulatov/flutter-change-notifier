@@ -7,8 +7,7 @@ class ChangeColorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CounterViewModel counterViewModel =
-        Provider.of<CounterViewModel>(context);
+    final counterViewModel = Provider.of<CounterViewModel>(context);
 
     return FlatButton.icon(
       icon: Icon(Icons.color_lens, color: counterViewModel.color),

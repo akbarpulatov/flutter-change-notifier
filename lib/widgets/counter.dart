@@ -8,26 +8,48 @@ import '../blocs/counter_view_model.dart';
 class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final CounterViewModel counterViewModel =
-        Provider.of<CounterViewModel>(context);
-
     return Scaffold(
       body: Container(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                counterViewModel.counter.toString(),
-                style: TextStyle(fontSize: 62.0),
-              ),
+              TextForRerender(),
               IncrementButton(),
               DecrementButton(),
               ChangeColorButton(),
+              Test2ForRerender(),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class Test2ForRerender extends StatelessWidget {
+  const Test2ForRerender({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text('asdf');
+  }
+}
+
+class TextForRerender extends StatelessWidget {
+  const TextForRerender({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final CounterViewModel counterViewModel =
+        Provider.of<CounterViewModel>(context);
+    return Text(
+      counterViewModel.counter.toString(),
+      style: TextStyle(fontSize: 62.0),
     );
   }
 }

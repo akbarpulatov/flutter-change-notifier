@@ -7,7 +7,7 @@ class IncrementButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CounterViewModel counterViewModel =
-        Provider.of<CounterViewModel>(context);
+        Provider.of<CounterViewModel>(context, listen: false);
 
     return FlatButton.icon(
       icon: Icon(
